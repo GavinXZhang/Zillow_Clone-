@@ -41,17 +41,18 @@ const getProperties = async (slug) => {
     return data.data.propertyS;
 };
 const Property = async ({params}) => {
-    const property = await getProperties(params.slug);
-    console.log(property);
+    const properties = await getProperties(params.slug);
+    const property = properties[0];
+    console.log( "property", property);
 
     return (
         <div className="property">
             <div className = "property-image-container">
                 {property.images && (
                     <ImageCard
-                        key={image.id}
-                        url={image.url}
-                        fileName={image.fileName}
+                        key={property.images.id}
+                        url={property.images.url}
+                        fileName={property.images.fileName}
                         width={2000}
                         height={550}
                     />
@@ -67,7 +68,6 @@ const Property = async ({params}) => {
                 <h2>Amenities</h2>
                 <ul>
                     {property.parking && <li>Parking</li>} 
-                    {console.log(property.parking)}
                     {property.petFriendly && <li>Pet Friendly</li>}
                     {property.inUnitDryer && <li>In Unit Dryer</li>}
                     {property.elevator && <li>Elevator</li>}

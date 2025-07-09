@@ -8,7 +8,6 @@ body{
   padding: 0;
   height: 100vh;
   width: 100vw;
-  overflow: hidden;
 }
 
 nav{
@@ -35,7 +34,7 @@ nav{
   margin: 10px 5px 10px 20px;
 }
 
-.search-bar button{
+button{
   background-color: rgb(0, 106, 255);
   color: rgb( 255,255, 255);
   border: none;
@@ -87,4 +86,26 @@ article.listings{
   margin: 1px;
   padding: 1px;
   color: rgb(0, 0, 0);
+}
+.property {
+  margin: 50px, 100p;
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  display: flex;
+}
+.image{
+  width: 100%
+}
+.property-image-container{
+  width: 70%
+}
+.property-info-container{
+  width: 30%;
+  padding: 30px;
+}
+.property-info-container span{
+  border: solid 1px rgb(199,199,199);
+  border-radius: 5px;
+  padding: 4px, 10px;
+  margin: 5px, 0px;
 }
