@@ -49,13 +49,16 @@ const getProperties= async () => {
 }
   const Home  = async () => {
     const properties = await getProperties();
+    const locations = properties.map(property => property.location);
+
+    
   return (
     <>
     <Navbar/>  
     <Searchbar/>  
     <main>
       <article>
-        <Map/>
+        <Map locations = {locations}/>
       </article>
       <article className = "listings">
         <h2>
