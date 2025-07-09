@@ -5,14 +5,14 @@ import {GoogleMap, useJsApiLoader, Marker} from '@react-google-maps/api';
 const Map= ({locations}) => {
     const containerStyle = {
         width: '100%',
-        height: '90%'
+        height: '100%'
     };
-    const center = {
-        lat: locations[0].latitude, // Example latitude
-        lng: locations[0].longitude // Example longitude
-    };
-    console.log("center", center);
     console.log("locations", locations);
+    const center = {
+        lat: locations[0]?.latitude, // Example latitude
+        lng: locations[0]?.longitude // Example longitude
+    };
+
     const image = "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png";
     const {isLoaded} = useJsApiLoader({
         id: 'google-map-script',
@@ -21,8 +21,7 @@ const Map= ({locations}) => {
     const [map, setmap] = useState(null);
 
     const onLoad = useCallback(function callback(map) {
-        const bounds = new window.google.maps.LatLngBounds();
-        map.fitBounds(bounds);
+        map.setZoom(7)
         setmap(map);
     }, []);
     const onUnmount = useCallback(function callback(map) {
@@ -33,7 +32,6 @@ const Map= ({locations}) => {
             <GoogleMap
                 mapContainerStyle={containerStyle}
                 center={center}
-                zoom={10}
                 onLoad={onLoad}
                 onUnmount={onUnmount}
             >
